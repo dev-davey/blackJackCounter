@@ -9,26 +9,44 @@
     <title>Black Jack Counter</title>
 </head>
 <body>
+    <div class="container-fluid">
         <div class="row">
             <div class="col">
                 <h1 class="text-center my-4">Black Jack Counter</h1>
             </div>
         </div>
-        <div class="jumbotron">
-                <div class="row py-4">
-                <div class="col-md-7 col-lg-8 col-xl-9 text-center">
-                    <h3 id="count" class="text-bold text-dark">Count: </h3>
+        
+            <div class="row py-2"> 
+                <div class="col-md-3 my-auto text-center">
+                    <h3 id="count" class="text-bold text-dark">Running Count: </h3>
+                    <button class="btn btn-outline-secondary" onclick="resetArr()">Reset Count</button>
                 </div>
-                    <div class="col-md-5 col-lg-4 col-xl-3">
-                        <button class="btn btn-outline-secondary" onclick="resetArr()">Reset Count</button>
+                    <div class="col-md-4">
+                        <h5 id="cardsLeft">Deck Card Count</h5>
                     </div>
-                </div>
+
+                    <div id="trueCount" class="col-md-4">True Count</div>
+            </div>      
+            <div class="col-5">
+                <label type="text" for="deckNumber" >Number Of Decks</label>
+                <select id="deckNumber">
+                    <option value="1" selected="selected">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                </select>
+                <button onclick="getValue()" type="submit">ok</button>
             </div>
-        </div>    
-        </div>
+            <div class="col-7">
+                <h5 id="bettingUnits">Betting Size:</h5>
+            </div>
+
         <div class="row my-2">
             <div class="col">
-                <img id="2" onClick="cardArray(this.id)" src="./cards/2c.png" alt="">
+                <img id="2" onclick="cardArray(this.id)" src="./cards/2c.png" alt="">
             </div>
             <div class="col">
                 <img id="3" onclick="cardArray(this.id)"  src="./cards/3c.png" alt="">
@@ -73,6 +91,7 @@
                 <img id="a" onclick="cardArray(this.id)"  src="./cards/ac.png" alt="">
             </div>
         </div>
+    </div>
     <script src="./index.js"></script>
 </body>
 </html>
