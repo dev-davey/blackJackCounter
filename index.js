@@ -14,7 +14,12 @@ function countCards(arr, decks){
     for (var i = 0; i < arr.length; i++){
         let cards = arr[i];
 
-       if(cards === 'a' || cards === 'k' || cards === 'q' || cards === 'j' || cards === '10'){
+        if(decks <= 0){
+            alert("No cards left in game.  Click Reset to start again.")
+            resetArr();
+        }
+
+       else if(cards === 'a' || cards === 'k' || cards === 'q' || cards === 'j' || cards === '10'){
            count -= 1;
            decks -= 1;
        }
