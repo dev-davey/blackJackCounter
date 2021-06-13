@@ -5,93 +5,135 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css">
+    
     <link rel="stylesheet" href="./style.css">
     <title>Black Jack Counter</title>
 </head>
-<body>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col">
-                <h1 class="text-center my-4">Black Jack Counter</h1>
+<body> 
+
+    <div class="modal-container">
+        <div class="modal-align">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#readmeModal">
+            Read Me
+            </button>
+        
+        <!-- Modal -->
+        <div class="modal fade" id="readmeModal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="ModalLabel">BJ Counter Read Me</h5>
+                
+                </div>
+                <div class="modal-body">
+                <h5>What is Card Counting?</h5>
+                <p>Card counting is a strategy that allows blackjack players to know when they have the advantage. When this advantage occurs, players will increase their bets. When the advantage shifts in the dealers favor, the player will make a smaller bet or not play hands at all. Counters can gain a good advantage over the dealer by varying bets in size based of the count.</p>
+
+                <h5>Basic Counting Strategy</h5>
+                <p>If the cards dealt are: 2, 3, 4, 5, 6 = +1 to the count. 
+                    Cards: 7, 8, 9 = 0 or no change to the count.
+                    Cards 10, Jack, Queen, King, Ace = -1 to the count. As the count goes up it indicates that more low cards, which are bad for the counter have been discarded from the remaining deck. When this happens there is a greater number of high cards remaining which are good for the player.</p>
+                <h5>True Count and Bet Size</h5>
+                <p>The true count is the running count divided by the number of remaining decks in the game rounded the nearest half deck. The player then adjust the number of betting units (average dollar amount bet per hand) he/she is playing per hand to gain the advantage.  This is the most accurate and widley used way to count cards.</p>
+                <h5>How To Use Our App</h5>
+                <p>Simple click the card value that is dealt for every card and our system will keep every unit of measure that is going on in the game.  The application will even remove the card from play to keep an accurate deck count.  The user of this application just needs to keep track of the betting units and bet accoringly.</p>
+                <h5>Liability</h5>
+                <p>This Application does not guarentee a winning result and is built for players to use in home games or for fun, not for use at a real casino or for real money.  Good luck and have fun playing!</p>
+                <h5></h5>
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
             </div>
         </div>
+        </div>
+    </div>
+
+    <div class="heading-container">
+            <img src="./imgs/PNGIX.com_blackjack-png_6305241.png" alt="">
+            <h1 class="text-center my-4">Black Jack Counter</h1>
+    </div>
+
+    <div class="head-container2">
+        <section>
+            <label type="text" for="deckNumber" ><h5>Number Of Decks</h5></label>
+            <select id="deckNumber">
+                <option value="1" selected="selected">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+            </select>
+        <h5 id="cardsLeft">Decks Left:</h5>
+        <button class="btn btn-primary" onclick="resetArr()">Reset</button>
+    </div>
+
+    <div class="head-container">
+        <h5 id="count">Running Count: </h5>
+        <h5 id="trueCount">True Count:</h5>
+        <h5 id="bettingUnits">Bett Size:</h5>
+    </div>
+                 
         
-            <div class="row py-2"> 
-                <div class="col-md-3 my-auto text-center">
-                    <h3 id="count" class="text-bold text-dark">Running Count: </h3>
-                    <button class="btn btn-outline-secondary" onclick="resetArr()">Reset Count</button>
-                </div>
-                    <div class="col-md-4">
-                        <h5 id="cardsLeft">Deck Card Count</h5>
-                    </div>
-
-                    <div id="trueCount" class="col-md-4">True Count</div>
-            </div>      
-            <div class="col-5">
-                <label type="text" for="deckNumber" >Number Of Decks</label>
-                <select id="deckNumber">
-                    <option value="1" selected="selected">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                </select>
-                <button onclick="getValue()" type="submit">ok</button>
-            </div>
-            <div class="col-7">
-                <h5 id="bettingUnits">Betting Size:</h5>
-            </div>
-
-        <div class="row my-2">
-            <div class="col">
+    <div class="container-fluid">
+        <div class="row text-center">
+            <div class="col-sm-3 col-4">
                 <img id="2" onclick="cardArray(this.id)" src="./cards/2c.png" alt="">
             </div>
-            <div class="col">
+            <div class="col-sm-3 col-4">
                 <img id="3" onclick="cardArray(this.id)"  src="./cards/3c.png" alt="">
             </div>
-            <div class="col">
+            <div class="col-sm-3 col-4">
                 <img id="4" onclick="cardArray(this.id)"  src="./cards/4c.png" alt="">
             </div>
-            <div class="col">
+            <div class="col-sm-3 col-4">
                 <img id="5" onclick="cardArray(this.id)"  src="./cards/5c.png" alt="">
             </div>
-        </div>
-        <div class="row my-2">  
-            <div class="col">
+            <div class="col-sm-3 col-4">
                 <img id="6" onclick="cardArray(this.id)"  src="./cards/6c.png" alt="">
             </div>
-            <div class="col">
+            <div class="col-sm-3 col-4">
                 <img id="7" onclick="cardArray(this.id)"  src="./cards/7c.png" alt="">
             </div>
-            <div class="col">
+            <div class="col-sm-3 col-4">
                 <img id="8" onclick="cardArray(this.id)"  src="./cards/8c.png" alt="">
             </div>
-            <div class="col">
+            <div class="col-sm-3 col-4">
                 <img id="9" onclick="cardArray(this.id)"  src="./cards/9c.png" alt="">
             </div> 
-        </div>
-        <div class="row my-2">
-            <div class="col">
+            <div class="col-sm-3 col-4">
                 <img id="10" onclick="cardArray(this.id)"  src="./cards/10c.png" alt="">
             </div> 
-            <div class="col">
+            <div class="col-sm-3 col-4">
                 <img id="j" onclick="cardArray(this.id)"  src="./cards/jc.png" alt="">
             </div>
-            <div class="col">
+            <div class="col-sm-3 col-4">
                 <img id="q" onclick="cardArray(this.id)"  src="./cards/qc.png" alt="">
             </div>
-            <div class="col">
+            <div class="col-sm-3 col-4">
                 <img id="k" onclick="cardArray(this.id)"  src="./cards/kc.png" alt="">
             </div>
-        </div>
-        <div class="row my-2 justify-content-center">
-            <div class="col-2 ">
+            <div class="col-sm-3 col-4">
                 <img id="a" onclick="cardArray(this.id)"  src="./cards/ac.png" alt="">
             </div>
         </div>
+
+        <div class="col-12 text-center mt-5">
+            <p>&copy; Copyright: 
+                <a href="">www.DevDavey.com</a>
+            </br>
+            <a href="https://github.com/dev-davey" target="_blank">
+                Designed by: Dev-Davey
+            </a>
+            </p>
+        </div>
     </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="./index.js"></script>
 </body>
 </html>

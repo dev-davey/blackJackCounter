@@ -32,9 +32,9 @@ function countCards(arr, decks){
         let trueCount = Math.ceil(count / accurateDecks)
         let bettingUnits;
         trueCount > 2 ? bettingUnits = trueCount - 1 : bettingUnits = 1 ; 
-       document.getElementById('count').innerHTML = "Running Count:" + count;
-       document.getElementById('cardsLeft').innerHTML = "Decks Left" + accurateDecks;
-       document.getElementById('trueCount').innerHTML = "True Count" + trueCount;
+       document.getElementById('count').innerHTML = "Running Count: " + count;
+       document.getElementById('cardsLeft').innerHTML = "Decks Left: " + accurateDecks;
+       document.getElementById('trueCount').innerHTML = "True Count: " + trueCount;
        document.getElementById('bettingUnits').innerHTML= `Bet Size: ${bettingUnits} Units`
     }
 }
@@ -46,7 +46,7 @@ let resetArr = () => {
     document.getElementById('count').innerHTML = "Running Count:"
     document.getElementById('cardsLeft').innerHTML = "Decks Left:"
     document.getElementById('trueCount').innerHTML = "True Count:"
-    document.getElementById('bettingUnits').innerHTML= "BetSize:"
+    document.getElementById('bettingUnits').innerHTML= "Bet Size:"
 }
 
 function getValue(){

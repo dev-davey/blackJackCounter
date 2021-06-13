@@ -1,5 +1,74 @@
-.jumbotron {
-  border: solid black 2px;
-  height: 10vh;
+h1 {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  color: rgb(36, 34, 34);
+  text-shadow: rgb(73, 69, 69) 2px 2px 2px;
+}
+
+.modal-container {
   margin-bottom: 2rem;
+}
+
+.modal-align {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.head-container {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 2rem;
+}
+
+.head-container h5 {
+  margin: 1rem;
+}
+
+.head-container button {
+  margin: 1rem;
+}
+
+img {
+  max-width: 100%;
+}
+
+.heading-container {
+  display: flex;
+  justify-content: center;
+}
+
+.head-container2 {
+  margin-left: 5vw;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.heading-container img {
+  height: 4rem;
+  margin-top: 1rem;
+  margin-right: 1rem;
+}
+
+button {
+  text-transform: uppercase;
+  width: 6rem;
+  height: 2.3rem;
+}
+
+.col-4 {
+  margin-bottom: 0.5rem;
+  margin-top: 1rem;
+}
+
+a {
+  text-decoration: none;
+}
+
+@media only screen and (max-width: 600px) {
+  h5 {
+    font-size: 0.8rem;
+  }
+  .head-container {
+    margin-bottom: 0;
+  }
 }
